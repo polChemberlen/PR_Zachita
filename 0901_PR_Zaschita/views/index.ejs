@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <h1>
+        Практическая под защиту
+    </h1>
+    <h2>
+        ГЛАВНАЯ СТРАНИЦА
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Жанр</th>
+                <th>Издательство</th>
+                <th>Автор</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% books.forEach(book=> { %>
+                <tr>
+                    <td>
+                        <%= book.name %>
+                    </td>
+                    <td>
+                        <%= book.price.toFixed(2) %>
+                    </td>
+                    <td>
+                        <%= book.Genre.name %>
+                    </td>
+                    <td>
+                        <%= book.Publishing_House.name %>
+                    </td>
+                    <td>
+                        <%= book.Author.name + " " + book.Author.surname%>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <div class="land">
+        <a href="/register"><button>Регистрация</button></a>
+
+        <a href="/login"><button>Войти в аккаунт</button></a>
+
+        <a href="/admin"><button>Админ панель</button></a>
+    </div>
+
+</body>
+
+</html>

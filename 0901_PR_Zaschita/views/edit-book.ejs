@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Изменить книгу</title>
+</head>
+
+<body>
+    <h1>
+        Практическая под защиту
+    </h1>
+    <h2>
+        ИЗМЕНИТЬ КНИГУ
+    </h2>
+    <form action="/edit-book/<%= book.id %>" method="POST">
+
+        <input type="text" id="name" name="name" value="<%= book.name %>" placeholder="название" required>
+
+        <input type="number" id="price" name="price" value="<%= book.price %>" step="0.01" placeholder="цена" required>
+
+        <select id="genre" name="genreId" placeholder="жанр">
+            <% genres.forEach(genre=> { %>
+                <option value="<%= genre.id %>" <%=genre.id===book.genreId ? 'selected' : '' %>><%=
+                        genre.name %>
+                </option>
+                <% }); %>
+        </select>
+
+        <select id="pHouse" name="pHouseId" placeholder="издательство">
+            <% pHouses.forEach(pHouse=> { %>
+                <option value="<%= pHouse.id %>" <%=pHouse.id===book.pHouseId ? 'selected' : '' %>><%=
+                        pHouse.name %>
+                </option>
+                <% }) %>
+        </select>
+
+        <select id="author" name="authorId" placeholder="автор">
+            <% authors.forEach(author => { %>
+                <option value="<%= author.id %>" <%=author.id===book.authorId ? 'selected' : '' %>><%=
+                        author.name %>
+                </option>
+                <% }) %>
+        </select>
+
+        <button type="submit">Сохранить изменение</button>
+    </form>
+</body>
+
+</html>

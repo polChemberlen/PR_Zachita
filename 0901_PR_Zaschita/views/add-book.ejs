@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Добавить КНИГУ</title>
+</head>
+
+<body>
+    <h1>
+        Практическая под защиту
+    </h1>
+    <h2>ДОБАВИТЬ КНИГУ</h2>
+    <form action="/add-book" method="POST">
+
+        <input type="text" id="name" name="name" placeholder="название" required>
+
+        <input type="number" id="price" name="price" step="0.01" placeholder="цена" required>
+
+        <select id="genre" name="genreId" placeholder="жанр" required>
+            <% genres.forEach(genre => { %> 
+                <option value="<%= genre.id %>"><%= genre.name %></option>
+            <% }) %>
+        </select>
+
+        <select id="pHouse" name="pHouseId" placeholder="издательсво" required>
+            <% pHouses.forEach(pHouse => { %> 
+                <option value="<%= pHouse.id %>"><%= pHouse.name %></option>
+            <% }) %>
+        </select>
+
+        <select id="author" name="authorId" placeholder="автор" required>
+            <% authors.forEach(author => { %> 
+                <option value="<%= author.id %>"><%= author.name + " " + author.surname%> </option>
+            <% }) %>
+        </select>
+
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+
+</html>

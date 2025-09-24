@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Добавить автора</title>
+</head>
+<body>
+    <h1>
+        Практическая под защиту
+    </h1>
+    <h2>ДОБАВИТЬ АВТОРА</h2>
+    <form action="/add-author" method="POST">
+        <label for="name">ФИО автора:</label>
+        <input type="text" id="name" name="name" placeholder="фамилия" required>
+        <input type="text" id="surname" name="surname" placeholder="имя" required>
+        <input type="text" id="patronymic" name="patronymic" placeholder="отчество (если есть)">
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+</html>

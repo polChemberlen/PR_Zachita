@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Админ</title>
+</head>
+
+<body>
+    <h1>
+        Практическая под защиту
+    </h1>
+    <h2>
+        ПАНЕЛЬ АДМИНЧИКА
+    </h2>
+
+    <table class="land">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Жанр</th>
+                <th>Издательство</th>
+                <th>Автор</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% books.forEach(book=> { %>
+                <tr>
+                    <td>
+                        <%= book.name %>
+                    </td>
+                    <td>
+                        <%= book.price.toFixed(2) %>
+                    </td>
+                    <td>
+                        <%= book.Genre.name %>
+                    </td>
+                    <td>
+                        <%= book.Publishing_House.name %>
+                    </td>
+                    <td>
+                        <%= book.Author.name + " " + book.Author.surname %>
+                    </td>
+                    <td>
+                        <form action="/delete-book/<%= book.id %>" method="POST" style="display: inline;">
+                            <button type="submit">Удалить</button>
+                        </form>
+
+                        <button onclick="window.location.href='/edit-book/<%= book.id %>'">Изменить</button>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <div class="buttons land">
+        <button onclick="window.location.href='/add-book'">Добавить книгу</button>
+        <button onclick="window.location.href='/add-genre'">Добавить жанр</button>
+        <button onclick="window.location.href='/add-publishing-house'">Добавить издательсво</button>
+        <button onclick="window.location.href='/add-author'">Добавить автора</button>
+        <button onclick="window.location.href='#'">Псевдо рикрол</button>
+        <button onclick="window.location.href='/logout'">Выход</button>
+    </div>
+
+
+</body>
+
+</html>
